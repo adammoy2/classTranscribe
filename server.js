@@ -37,6 +37,22 @@ var exampleTerms = {
   "cs446-fa16": "Decision Trees"
 }
 
+//testing piwik
+
+var piwik = require ('piwik').setup ('https://classtranscribe.herokuapp.com/piwik/', 'abc123');
+ 
+// track a pageview 
+piwik.track (
+  {
+    idsite:      1,
+    url:         'http://classtranscribe.herokuapp.com',
+    action_name: 'Page Title',
+    _cvar:       { '1': ['group', 'customer'] }
+  },
+  console.log
+);
+
+//end testing
 
 var homeMustache = fs.readFileSync(mustachePath + 'home.mustache').toString();
 app.get('/', function (request, response) {
