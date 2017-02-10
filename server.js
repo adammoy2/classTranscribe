@@ -42,8 +42,8 @@ var exampleTerms = {
 var PiwikTracker = require('piwik-tracker');
 
 
-var piwik = require ('piwik').setup ('https://github.com/cs-education/classTranscribe/piwik.php', 'abc123');
-
+//var piwik = require ('piwik').setup ('https://github.com/cs-education/classTranscribe/piwik.php', 'abc123');
+var piwik = new PiwikTracker(1, 'https://github.com/cs-education/classTranscribe/piwik.php');
 //var baseUrl = 'http://classtranscribe.herokuapp.com';
 
 //piwik.track(baseUrl + req.url);
