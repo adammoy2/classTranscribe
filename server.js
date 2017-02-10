@@ -44,9 +44,9 @@ var PiwikTracker = require('piwik-tracker');
 
 var piwik = require ('piwik').setup ('https://classtranscribe.herokuapp.com/piwik.php', 'abc123');
 
-var baseUrl = 'http://classtranscribe.herokuapp.com';
+//var baseUrl = 'http://classtranscribe.herokuapp.com';
 
-piwik.track(baseUrl + req.url);
+//piwik.track(baseUrl + req.url);
  
 // track a pageview 
 piwik.track (
