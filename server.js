@@ -42,7 +42,7 @@ var exampleTerms = {
 var PiwikTracker = require('piwik-tracker');
 
 
-var piwik = require ('piwik').setup ('https://classtranscribe.herokuapp.com/piwik.php', 'abc123');
+var piwik = require ('piwik').setup ('https://github.com/cs-education/classTranscribe/piwik.php', 'abc123');
 
 //var baseUrl = 'http://classtranscribe.herokuapp.com';
 
@@ -52,7 +52,7 @@ var piwik = require ('piwik').setup ('https://classtranscribe.herokuapp.com/piwi
 piwik.track (
   {
     idsite:      1,
-    url:         'http://classtranscribe.herokuapp.com',
+    url:         'https://github.com/cs-education/classTranscribe',
     action_name: 'Page Title',
     _cvar:       { '1': ['group', 'customer'] }
   },
