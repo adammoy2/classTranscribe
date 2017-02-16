@@ -1,11 +1,11 @@
 <section class="login">
     {{#list}}
+        <form>
         <a href="/user", style="color:white">{{user}}</a>
         <!-- <a href="/upload", style="color:white">Upload</a> -->
-        <!-- form -->
             <input type="file" accept="video" name="vid" onchange="this.form.submit();">
-        <!-- /form -->
         <a href="/logout", style="color:white">Log out</a>
+        </form>
     {{/list}}
 </section>
 
