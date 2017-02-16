@@ -268,6 +268,8 @@ app.get('/:className',
     var className = request.params.className.toLowerCase();
     
     if (!isClassNameValid(className)) {
+      response.send('Could not find the requested page.')
+      response.end();
       return;
     }
 
