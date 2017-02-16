@@ -109,6 +109,19 @@ client.on("monitor", function (time, args, raw_reply) {
 
 var mustachePath = 'templates/';
 
+function isClassNameValid(className) {
+
+  var classes = [
+    "cs241", "cs225", "cs225-sp16", "cs446-fa16", "adv582", "ece210", "chem233-sp16"
+  ]
+
+  if (classes.indexOf(className) >= 0) {
+    return true;
+  }
+
+  return false;
+}
+
 var exampleTerms = {
   "cs241": "printf",
   "cs225": "pointer",
@@ -253,7 +266,10 @@ app.get('/:className',
   ensureAuthenticated,
   function (request, response) {
     var className = request.params.className.toLowerCase();
-    className = "DEADBEEF";
+    
+    if (!isClassNameValid(className)) {
+      return;
+    }
 
     response.writeHead(200, {
       'Content-Type': 'text/html'
@@ -275,7 +291,8 @@ app.get('/:className',
         partial: authenticatedPartial
     });
     response.end(html);
-  });
+  }
+);
 
 var progressDashboardMustache = fs.readFileSync(mustachePath + 'progressDashboard.mustache').toString();
 app.get('/viewProgress/:className/:uuid', function (request, response) {
