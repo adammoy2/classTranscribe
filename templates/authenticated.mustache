@@ -1,10 +1,10 @@
 <section class="login">
     {{#list}}
         <a href="/user", style="color:white">{{user}}</a>
-        <a href="/upload", style="color:white">Upload</a>
+        <!-- <a href="/upload", style="color:white">Upload</a> -->
         <form>
-            <input type="file" name="pic">
-            <input type="submit">
+            <input type="file" accept="video" name="vid">
+            <input type="submit" value="Submit">
         </form>
         <a href="/logout", style="color:white">Log out</a>
     {{/list}}
