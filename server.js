@@ -268,8 +268,9 @@ app.get('/:className',
     var className = request.params.className.toLowerCase();
     
     if (!isClassNameValid(className)) {
-      response.send('Could not find the requested page.')
-      response.end();
+      var invalidClassHTML = "<a href=\"/user\">{{user}}</a>"
+      //response.send('Could not find the requested page.');
+      response.end(invalidClassHTML);
       return;
     }
 
