@@ -29,7 +29,7 @@ passport.deserializeUser(function (user, done) {
   done(null, user);
 });
 
-var CALLBACK_URL = "https://classtranscribe.herokuapp.com/login/callback";
+var CALLBACK_URL = "https://192.17.96.13:6001/login/callback";
 var ENTRY_POINT = "https://idp.testshib.org/idp/profile/SAML2/Redirect/SSO";
 var ISSUER = 'ClassTranscribe';
 var LOGOUT_URL = "https://www.testshib.org/Shibboleth.sso/Logout";
@@ -70,8 +70,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 }));
 app.use(express.static('public'));
 app.use(cookieParser());
-app.use(bodyParser());
-app.use(session({ secret: "secret" }));
+app.use(session({secret: "secret", resave: true, saveUninitialized: true}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -91,6 +90,7 @@ TODO: Redirect to correct url as such...
   TODO: What else will we need to protect?
 
 */
+
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
@@ -805,7 +805,7 @@ client.on('error', function (error) {
   console.log('redis error');
 });
 
-var port = process.env.PORT || 8000;
+var port = process.env.PORT || 6001;
 app.listen(port, function () {
   console.log('listening on port ' + port + '!');
 });
